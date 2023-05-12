@@ -1,0 +1,88 @@
+@use 'variables' as v;
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:wght@500;600&family=Poppins:wght@400;500&display=swap");
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.8%;
+  scroll-behavior: smooth;
+}
+body{
+  font-size: 1.8rem;
+  font-family: v.$body-font;
+  background-color: v.$body-color;
+}
+.header{
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  .nav{
+    width: 90%;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    &__logo{
+      width: 100px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      .logo{
+        width: 34px;
+        height: 34px;
+      }
+      .logo-name{
+        font-weight: 600;
+        font-family: v.$title-font;
+      }
+    }
+    &__options{
+      display: flex;
+      gap: 20px;
+      .option__icon{
+        cursor: pointer;
+      }
+      .show{
+        display: flex;
+        transition: all .4s ease;
+      }
+      .hidden{
+        display: none;
+        transition: all .4s ease;
+      }
+      .options__menu{
+        position: absolute;
+        background-color: cadetblue;
+        width: 100%;
+        list-style: none;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        padding: 40px 0;
+        .item-close{
+          align-self: end;
+          padding-right: 20px;
+          cursor: pointer;
+        }
+        .menu__item{
+          padding-bottom: 10px;
+          .item-link{
+            color: v.$title-color;
+            text-decoration: none;
+            font-weight: 600;
+            &:hover{
+              color: v.$first-color-alt;
+            }
+          }
+        }
+      }
+    }
+  }
+}

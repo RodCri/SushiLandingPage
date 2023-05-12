@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:wght@500;600&family=Poppins:wght@400;500&display=swap"); /*========== Colors ==========*/
+/*Color mode HSL(hue, saturation, lightness)*/
+/*========== Font and typography ==========*/
+/*.5rem = 8px | 1rem = 16px ...*/
+/*========== Font weight ==========*/
+/*========== z index ==========*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.8%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  background-color: hsl(19deg, 100%, 96%);
+}
+
+.header {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.header .nav {
+  width: 90%;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+.header .nav__logo {
+  width: 100px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.header .nav__logo .logo {
+  width: 34px;
+  height: 34px;
+}
+.header .nav__logo .logo-name {
+  font-weight: 600;
+  font-family: "Lora", serif;
+}
+.header .nav__options {
+  display: flex;
+  gap: 20px;
+}
+.header .nav__options .option__icon {
+  cursor: pointer;
+}
+.header .nav__options .show {
+  display: flex;
+  transition: all 0.4s ease;
+}
+.header .nav__options .hidden {
+  display: none;
+  transition: all 0.4s ease;
+}
+.header .nav__options .options__menu {
+  position: absolute;
+  background-color: cadetblue;
+  width: 100%;
+  list-style: none;
+  left: 0;
+  top: 0;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 0;
+}
+.header .nav__options .options__menu .item-close {
+  align-self: end;
+  padding-right: 20px;
+  cursor: pointer;
+}
+.header .nav__options .options__menu .menu__item {
+  padding-bottom: 10px;
+}
+.header .nav__options .options__menu .menu__item .item-link {
+  color: hsl(19deg, 16%, 15%);
+  text-decoration: none;
+  font-weight: 600;
+}
+.header .nav__options .options__menu .menu__item .item-link:hover {
+  color: hsl(19deg, 64%, 52%);
+}
+
+/*# sourceMappingURL=style.css.map */
