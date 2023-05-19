@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:wght@500;600&family=Poppins:wght@400;500&display=swap");
 *{
   padding: 0;
@@ -13,11 +14,13 @@ body{
   font-size: 1.8rem;
   font-family: v.$body-font;
   background-color: v.$body-color;
+  overflow-x: hidden;
 }
 .header{
   width: 100%;
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
+  overflow: hidden;
   .nav{
     width: 90%;
     height: 100px;
@@ -46,6 +49,9 @@ body{
       gap: 20px;
       .option__icon{
         cursor: pointer;
+        @media(min-width: 920px){
+          display: none;
+        }
       }
       .show{
         display: flex;
@@ -57,7 +63,8 @@ body{
       }
       .options__menu{
         position: absolute;
-        background-color: cadetblue;
+        background-color: hsl(19, 100%, 96%);        
+        box-shadow: 0 0 0 100vmax rgb(202, 198, 198,.7);
         width: 100%;
         list-style: none;
         left: 0;
@@ -65,11 +72,24 @@ body{
         flex-direction: column;
         gap: 40px;
         align-items: center;
-        padding: 40px 0;
+        padding: 40px 0 80px 0;
+        z-index: 1;
+        border-radius: 0 0 10px 10px;
+        @media(min-width:920px){
+          display: flex;
+          position: relative;
+          flex-direction: row;
+          background-color: v.$body-color;
+          padding: 40px 0;
+          box-shadow: none;
+        }
         .item-close{
           align-self: end;
           padding-right: 20px;
           cursor: pointer;
+          @media(min-width: 920px){
+            display: none;
+          }
         }
         .menu__item{
           padding-bottom: 10px;
@@ -82,6 +102,210 @@ body{
             }
           }
         }
+      }
+    }
+  }
+  .hero{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    padding: 3rem;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    &::after{
+      content: '';
+      width: 180px;
+      height: 170px;
+      background: url('../img/leaf-branch-2.png') no-repeat center;
+      background-size: contain;
+      transform: rotate(90deg);
+      position: absolute;
+      top: 0;
+      left: -30px;
+      z-index: -1;
+      opacity: .4;
+    }
+    &::before{
+      content: '';
+      width: 170px;
+      height: 180px;
+      background: url('../img/leaf-branch-4.png') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      bottom: 0;
+      right: -20px;
+      z-index: -1;
+      opacity: .4;
+    }
+    @media(min-width:920px){
+      flex-direction: row-reverse;
+    }
+    &__illustration{
+      width: 100%;
+      @media(min-width:920px){
+        width: 60%;
+      }
+      .hero-img{
+        width: 100%;
+        max-width: 700px;
+      }
+    }
+    &__info{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @media(min-width:920px){
+        padding: 0 40px;
+        width: 40%;
+        align-items: flex-start;
+      }
+      .hero__title{
+        font-size: 3rem;
+        color: v.$title-color;
+        @media(min-width:920px){
+          font-size: 5.2rem;
+        }
+      }
+      .hero__subtitle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-size: 3rem;
+        color: v.$title-color;
+        @media(min-width:920px){
+          font-size: 5.2rem;
+        }
+        .hero__title-img{
+          width: 30px;
+          height: 30px;
+          @media(min-width:920px){
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+      .hero__info{
+        max-width: 370px;
+        margin: 26px 0;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        color: v.$text-color;
+        @media(min-width:920px){
+          font-size: 1.6rem;
+          width: 320px;
+          text-align: left;
+          padding: 0;
+        }
+      }
+      .cta{
+        @include m.cta;
+      }
+    }
+  }
+}
+.content{
+  width: 100%;
+  max-width: 1300px;
+  margin: 140px auto;
+  
+  .about{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 4rem;
+    position: relative;
+    &::after{
+      content: '';
+      width: 180px;
+      height: 160px;
+      background: url('../img/leaf-branch-1.png') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      bottom: calc( 50% - 80px);
+      right: -10%;
+      opacity: .4;
+      z-index: -1;
+      @media(min-width: 920px){
+        width: 204px;
+        height: 306px;
+        bottom: calc( 50% - 153px);
+        right: -10%;
+      }
+    }
+    @media(min-width:920px){
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+    &__info{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @media(min-width:920px){
+        align-items: flex-start;
+      }
+      .about__title{
+        font-family: v.$subtitle-font;
+        font-size: 2rem;
+        color: v.$first-color;
+        margin-bottom: 2rem;
+        @media(min-width:920px){
+          font-size: 2.5rem;
+        }
+      }
+      .about__subtitle{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 2.5rem;
+        color: v.$text-color;
+        font-family: v.$title-font;
+        @media(min-width:920px){
+          font-size: 3.5rem;
+        }
+        .about-sushi{
+          width: 36px;
+          height: 36px;
+          @media(min-width:920px){
+            width: 66px;
+            height: 66px;
+          }
+        }
+      }
+      .about__subtitle-down{
+        font-size: 2.5rem;
+        color: v.$text-color;
+        margin-bottom: 3.8rem;
+        font-family: v.$title-font;
+        @media(min-width:920px){
+          font-size: 3.5rem;
+        }
+      }
+      .about__description{
+        font-size: 1.4rem;
+        text-align: center;
+        line-height: 1.5;
+        color: v.$text-color-light;
+        max-width: 460px;
+        @media(min-width:920px){
+          width: 450px;
+          text-align: left;
+          font-size: 1.6rem;
+        }
+      }
+    }
+    &__figure{
+      width: 100%;
+      @media(min-width:920px){
+        width: 600px;
+      }
+      .about-img{
+        width: 100%;
+        max-width: 600px;
       }
     }
   }
