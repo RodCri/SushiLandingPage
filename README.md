@@ -10,4 +10,4 @@
 - Sass
 - Js
 
-![preview img](/preview.png)
+![preview img](./design/preview.png)
