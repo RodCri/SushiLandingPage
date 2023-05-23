@@ -2,9 +2,11 @@ const show = document.querySelector('#showMenu');
 const menu = document.querySelector('.options__menu');
 const changeTheme = document.querySelector('#changeTheme');
 const closeMenu = document.querySelector('.item-close');
+const bod = document.body;
 
-changeTheme.addEventListener('click', ()=>{
-  console.log('lo')
+changeTheme.addEventListener('click', (e)=>{
+  bod.classList.toggle("dark");
+  
 })
 
 show.addEventListener('click',()=>{

@@ -16,6 +16,10 @@ body{
   background-color: v.$body-color;
   overflow-x: hidden;
 }
+.dark{
+  background-color: #202020;
+  color: #fff;
+}
 .header{
   width: 100%;
   max-width: 1300px;
@@ -575,7 +579,7 @@ body{
         padding: 5px;
         @media(min-width:920px){
           margin: auto 0;
-          justify-content: space-between;
+          justify-content: space-evenly;
         }
         .email{
           width: 60%;
@@ -602,9 +606,7 @@ body{
           font-size: 1.4rem;
           opacity: .9;
           cursor: pointer;
-          @media(min-width: 920px){
-            width: 150px;
-          }
+          
           &:hover{
             opacity: 1;
             box-shadow: 0 0 6px 1px v.$first-color;
@@ -614,6 +616,129 @@ body{
             transition: all .3s ease-in;
           }
         }
+      }
+    }
+  }
+}
+.footer{
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  @media(min-width:920px){
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    @media(min-width:920px){
+      width: 100%;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .info__company{
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      @media(min-width:920px){
+        justify-content: flex-start;
+      }
+      .logo-company{
+        width: 80px;
+        height: 60px;
+      }
+      .company__name{
+        font-size:3rem;
+        font-family: v.$body-font;
+        color: v.$title-color;
+      }
+    }
+    .info__options{
+      list-style: none;
+      width: 200px;
+      text-align: center;
+      @media(min-width:920px){
+        text-align: left;
+      }
+      .options__name{
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        color: v.$title-color;
+      }
+      .name__item{
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+        color: v.$text-color;
+        cursor: pointer;
+        &:hover{
+          color: v.$first-color-alt;
+        }
+      }
+    }
+    .info__social{
+      .social__name{
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        color: v.$title-color;
+      }
+      .social__icons{
+        display: flex;
+        gap: 10px;
+        .social-contain{
+          width: 40px;
+          height: 40px;
+          background-color: v.$first-color-alt;
+          border-radius: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          .social-icon{
+            object-fit: cover;
+          }
+          &:hover{
+            transform: translateY(-3px);
+            transition: all .3s ease;
+          }
+          &:nth-child(3){
+            padding-top: 8px;
+          }
+        }
+      }
+    }
+  }
+  &__copy{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 20px 0;
+    @media(min-width:920px){
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .copy{
+      font-size: 1.4rem;
+      color: v.$text-color;
+    }
+    .copy__icons{
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      @media(min-width: 920px){
+        gap: 15px;
       }
     }
   }
